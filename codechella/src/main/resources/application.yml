@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: codechella
+
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:codechella_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+
+  flyway:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:codechella_db}
+    user: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    enabled: true
+
+  sql:
+    init:
+      mode: never  # evita conflitos com data.sql/schema.sql ao usar Flyway
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+    org.flywaydb: INFO
+
+server:
+  port: 8080
