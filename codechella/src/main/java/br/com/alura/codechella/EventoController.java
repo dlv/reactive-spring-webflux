@@ -56,4 +56,9 @@ public class EventoController {
     public Mono<EventoDto> atualizar(@PathVariable Long id, @RequestBody EventoDto dto){
         return service.atualizar(id, dto);
     }
+
+    @GetMapping("/{id}/traduzir/{idioma}")
+    public Mono<String> obterTraducao(@PathVariable Long id, @PathVariable String idioma) {
+        return service.obterTraducao(id, idioma);
+    }
 }

@@ -26,6 +26,9 @@ dependencies {
 	implementation("org.flywaydb:flyway-database-postgresql")
 	implementation("org.springframework:spring-jdbc")
 
+	// dotEnv
+	implementation("io.github.cdimascio:dotenv-java:3.2.0")
+
 	// Driver correto para R2DBC
 	runtimeOnly("io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE")
 
